@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      width: 380px;
+      padding: 16px;
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background: #f5f5f5;
+    }
+    .header {
+      display: flex;
+      align-items: center;
+      margin-bottom: 16px;
+    }
+    .header img {
+      width: 32px;
+      height: 32px;
+      margin-right: 12px;
+    }
+    .header h1 {
+      font-size: 18px;
+      color: #333;
+    }
+    .stats {
+      background: white;
+      border-radius: 8px;
+      padding: 16px;
+      margin-bottom: 16px;
+    }
+    .stat-row {
+      display: flex;
+      justify-content: space-between;
+      padding: 8px 0;
+      border-bottom: 1px solid #eee;
+    }
+    .stat-row:last-child {
+      border-bottom: none;
+    }
+    .stat-label {
+      color: #666;
+    }
+    .stat-value {
+      font-weight: 600;
+      color: #c41230;
+    }
+    .actions {
+      display: flex;
+      gap: 8px;
+    }
+    .btn {
+      flex: 1;
+      padding: 12px;
+      border: none;
+      border-radius: 6px;
+      font-size: 14px;
+      font-weight: 500;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+    .btn-primary {
+      background: #c41230;
+      color: white;
+    }
+    .btn-primary:hover {
+      background: #a30f28;
+    }
+    .btn-secondary {
+      background: white;
+      color: #333;
+      border: 1px solid #ddd;
+    }
+    .btn-secondary:hover {
+      background: #f0f0f0;
+    }
+    .btn:disabled {
+      opacity: 0.5;
+      cursor: not-allowed;
+    }
+    .tip {
+      margin-top: 12px;
+      padding: 12px;
+      background: #fff3cd;
+      border-radius: 6px;
+      font-size: 12px;
+      color: #856404;
+    }
+    .tip strong {
+      display: block;
+      margin-bottom: 4px;
+    }
+  </style>
+</head>
+<body>
+  <div class="header">
+    <img src="../icons/icon48.png" alt="Logo">
+    <h1>李宁商品数据采集</h1>
+  </div>
+  
+  <div class="stats">
+    <div class="stat-row">
+      <span class="stat-label">已捕获商品</span>
+      <span class="stat-value" id="productCount">0</span>
+    </div>
+    <div class="stat-row">
+      <span class="stat-label">已捕获详情</span>
+      <span class="stat-value" id="detailCount">0</span>
+    </div>
+    <div class="stat-row">
+      <span class="stat-label">当前页面</span>
+      <span class="stat-value" id="currentPage">-</span>
+    </div>
+  </div>
+  
+  <div class="actions">
+    <button class="btn btn-primary" id="exportBtn">导出 CSV</button>
+    <button class="btn btn-primary" id="exportJsonBtn">导出 JSON</button>
+    <button class="btn btn-secondary" id="clearBtn">清空</button>
+  </div>
+  
+  <div class="tip">
+    <strong>使用方式：</strong>
+    1. 打开 <a href="https://store.lining.com/goods/list?category=运动鞋_男鞋" target="_blank">李宁官网</a><br>
+    2. 浏览商品列表，扩展自动捕获数据<br>
+    3. 点击商品进入详情页，捕获详细信息<br>
+    4. 点击"导出"按钮下载数据
+  </div>
+  
+  <script src="popup.js"></script>
+</body>
+</html>

@@ -1,0 +1,263 @@
+{
+  "run_id": "20260630-233204",
+  "dataset_path": "/home/user/projects/AgentProject/Agent/rag/eval/datasets/rag_eval_dataset.jsonl",
+  "dataset_size": 26,
+  "top_k": 5,
+  "started_at": "2026-06-30T23:32:04.770573+08:00",
+  "modes": {
+    "text": {
+      "total_cases": 26,
+      "executed_cases": 26,
+      "skipped_cases": 0,
+      "status_breakdown": {
+        "ok": 26
+      },
+      "metrics": {
+        "available_rate": 1.0,
+        "top1": 0.5385,
+        "top3": 0.5769,
+        "recall_at_k": 0.5256,
+        "mrr": 0.559,
+        "clarify_rate": 0.1538,
+        "citation_consistency": 0.5769,
+        "latency_ms_p50": 697.599,
+        "latency_ms_p95": 1490.632,
+        "latency_ms_avg": 814.19
+      },
+      "clarify_confusion": {
+        "tp": 0,
+        "fp": 4,
+        "fn": 3,
+        "precision": 0.0,
+        "recall": 0.0
+      },
+      "segments": {
+        "scenario": {
+          "同款识别": {
+            "cases": 10,
+            "top1": 1.0,
+            "top3": 1.0,
+            "clarify_rate": 0.0,
+            "latency_ms_p95": 1591.589
+          },
+          "近似替代": {
+            "cases": 10,
+            "top1": 0.2,
+            "top3": 0.3,
+            "clarify_rate": 0.2,
+            "latency_ms_p95": 1378.975
+          },
+          "低置信澄清": {
+            "cases": 3,
+            "top1": 0.0,
+            "top3": 0.0,
+            "clarify_rate": 0.0,
+            "latency_ms_p95": 700.886
+          },
+          "知识问答": {
+            "cases": 3,
+            "top1": 0.6667,
+            "top3": 0.6667,
+            "clarify_rate": 0.6667,
+            "latency_ms_p95": 1030.892
+          }
+        },
+        "difficulty": {
+          "easy": {
+            "cases": 13,
+            "top1": 0.9231,
+            "top3": 0.9231,
+            "clarify_rate": 0.1538,
+            "latency_ms_p95": 1566.282
+          },
+          "medium": {
+            "cases": 10,
+            "top1": 0.2,
+            "top3": 0.3,
+            "clarify_rate": 0.2,
+            "latency_ms_p95": 1378.975
+          },
+          "hard": {
+            "cases": 3,
+            "top1": 0.0,
+            "top3": 0.0,
+            "clarify_rate": 0.0,
+            "latency_ms_p95": 700.886
+          }
+        },
+        "category": {
+          "运动/鞋类/凉鞋": {
+            "cases": 5,
+            "top1": 0.6,
+            "top3": 0.8,
+            "clarify_rate": 0.2,
+            "latency_ms_p95": 1418.166
+          },
+          "运动/鞋类/跑步鞋": {
+            "cases": 5,
+            "top1": 0.6,
+            "top3": 0.6,
+            "clarify_rate": 0.0,
+            "latency_ms_p95": 1547.234
+          },
+          "运动/鞋类/篮球鞋": {
+            "cases": 5,
+            "top1": 0.8,
+            "top3": 0.8,
+            "clarify_rate": 0.2,
+            "latency_ms_p95": 1209.1
+          },
+          "运动/鞋类/休闲鞋": {
+            "cases": 4,
+            "top1": 0.5,
+            "top3": 0.5,
+            "clarify_rate": 0.0,
+            "latency_ms_p95": 1430.434
+          },
+          "运动/鞋类/其他": {
+            "cases": 4,
+            "top1": 0.5,
+            "top3": 0.5,
+            "clarify_rate": 0.5,
+            "latency_ms_p95": 882.688
+          },
+          "运动/鞋类/综合": {
+            "cases": 3,
+            "top1": 0.0,
+            "top3": 0.0,
+            "clarify_rate": 0.0,
+            "latency_ms_p95": 700.886
+          }
+        }
+      }
+    },
+    "hybrid": {
+      "total_cases": 26,
+      "executed_cases": 26,
+      "skipped_cases": 0,
+      "status_breakdown": {
+        "ok": 26
+      },
+      "metrics": {
+        "available_rate": 1.0,
+        "top1": 0.5385,
+        "top3": 0.5769,
+        "recall_at_k": 0.5256,
+        "mrr": 0.559,
+        "clarify_rate": 0.1538,
+        "citation_consistency": 0.5769,
+        "latency_ms_p50": 1890.862,
+        "latency_ms_p95": 3087.132,
+        "latency_ms_avg": 1859.204
+      },
+      "clarify_confusion": {
+        "tp": 0,
+        "fp": 4,
+        "fn": 3,
+        "precision": 0.0,
+        "recall": 0.0
+      },
+      "segments": {
+        "scenario": {
+          "同款识别": {
+            "cases": 10,
+            "top1": 1.0,
+            "top3": 1.0,
+            "clarify_rate": 0.0,
+            "latency_ms_p95": 3130.881
+          },
+          "近似替代": {
+            "cases": 10,
+            "top1": 0.2,
+            "top3": 0.3,
+            "clarify_rate": 0.2,
+            "latency_ms_p95": 2620.04
+          },
+          "低置信澄清": {
+            "cases": 3,
+            "top1": 0.0,
+            "top3": 0.0,
+            "clarify_rate": 0.0,
+            "latency_ms_p95": 1813.507
+          },
+          "知识问答": {
+            "cases": 3,
+            "top1": 0.6667,
+            "top3": 0.6667,
+            "clarify_rate": 0.6667,
+            "latency_ms_p95": 1108.201
+          }
+        },
+        "difficulty": {
+          "easy": {
+            "cases": 13,
+            "top1": 0.9231,
+            "top3": 0.9231,
+            "clarify_rate": 0.1538,
+            "latency_ms_p95": 3119.029
+          },
+          "medium": {
+            "cases": 10,
+            "top1": 0.2,
+            "top3": 0.3,
+            "clarify_rate": 0.2,
+            "latency_ms_p95": 2620.04
+          },
+          "hard": {
+            "cases": 3,
+            "top1": 0.0,
+            "top3": 0.0,
+            "clarify_rate": 0.0,
+            "latency_ms_p95": 1813.507
+          }
+        },
+        "category": {
+          "运动/鞋类/凉鞋": {
+            "cases": 5,
+            "top1": 0.6,
+            "top3": 0.8,
+            "clarify_rate": 0.2,
+            "latency_ms_p95": 2943.637
+          },
+          "运动/鞋类/跑步鞋": {
+            "cases": 5,
+            "top1": 0.6,
+            "top3": 0.6,
+            "clarify_rate": 0.0,
+            "latency_ms_p95": 2984.128
+          },
+          "运动/鞋类/篮球鞋": {
+            "cases": 5,
+            "top1": 0.8,
+            "top3": 0.8,
+            "clarify_rate": 0.2,
+            "latency_ms_p95": 2968.026
+          },
+          "运动/鞋类/休闲鞋": {
+            "cases": 4,
+            "top1": 0.5,
+            "top3": 0.5,
+            "clarify_rate": 0.0,
+            "latency_ms_p95": 2585.378
+          },
+          "运动/鞋类/其他": {
+            "cases": 4,
+            "top1": 0.5,
+            "top3": 0.5,
+            "clarify_rate": 0.5,
+            "latency_ms_p95": 2315.023
+          },
+          "运动/鞋类/综合": {
+            "cases": 3,
+            "top1": 0.0,
+            "top3": 0.0,
+            "clarify_rate": 0.0,
+            "latency_ms_p95": 1813.507
+          }
+        }
+      }
+    }
+  },
+  "finished_at": "2026-06-30T23:34:40.379749+08:00",
+  "duration_seconds": 155.609
+}

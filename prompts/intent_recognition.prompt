@@ -1,0 +1,9 @@
+根据用户输入判断意图（只返回一个词）：
+- find_similar: 用户上传了图片，想找同款或相似商品
+- ask_product: 用户询问商品详情、价格、评价等
+- ask_document: 用户问的是产品手册、技术规范、FAQ、文档知识（如"质保多久"、"使用说明"）
+- compare: 用户要求对比多个商品
+- unclear: 无法确定
+
+用户输入：{user_input}
+会话历史条数：{history_count}

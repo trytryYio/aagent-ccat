@@ -1,0 +1,6 @@
+﻿{"test_id": "fp_001", "scenario": "high_conf_image", "image_path": "", "query_text": "", "gold_sku_id": "lining_000001", "expected_fast_path": true, "description": "CLIP=0.92 高置信同款"}
+{"test_id": "fp_002", "scenario": "low_conf_image", "image_path": "", "query_text": "找类似的", "gold_sku_id": "lining_000002", "expected_fast_path": false, "description": "CLIP=0.55 低置信"}
+{"test_id": "fp_003", "scenario": "high_conf_text", "image_path": "", "query_text": "飞电6 ELITE男女同款䨻丝轻量高回弹竞速比赛跑鞋", "gold_sku_id": "lining_11741442", "expected_fast_path": true, "description": "BGE-M3=0.80 高置信文本"}
+{"test_id": "fp_004", "scenario": "low_conf_text", "image_path": "", "query_text": "随便看看", "gold_sku_id": "", "expected_fast_path": false, "description": "BGE-M3=0.60 低置信文本"}
+{"test_id": "fp_005", "scenario": "hybrid_high", "image_path": "", "query_text": "李宁跑鞋", "gold_sku_id": "lining_000001", "expected_fast_path": true, "description": "CLIP=0.93 图文混合高置信"}
+{"test_id": "fp_006", "scenario": "hybrid_low", "image_path": "", "query_text": "运动鞋推荐", "gold_sku_id": "", "expected_fast_path": false, "description": "CLIP=0.72 图文混合低置信"}

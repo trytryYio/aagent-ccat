@@ -1,0 +1,7 @@
+﻿interface:
+  display_name: "面试官"
+  short_description: "AI Agent技术面试模拟，严格一问一答+评分"
+  default_prompt: "Use $interview-agent 开始模拟面试"
+
+policy:
+  allow_implicit_invocation: true

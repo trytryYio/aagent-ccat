@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { width: 380px; padding: 14px; font-family: -apple-system, "Microsoft YaHei", sans-serif; background: #f5f5f5; }
+    .header { display: flex; align-items: center; margin-bottom: 10px; }
+    .header img { width: 28px; height: 28px; margin-right: 10px; }
+    .header h1 { font-size: 15px; color: #333; }
+    .status { background: #e8f5e9; border-radius: 6px; padding: 8px 10px; margin-bottom: 10px; font-size: 12px; color: #2e7d32; text-align: center; word-break: break-all; }
+    .status.collecting { background: #fff3e0; color: #ef6c00; }
+    .status.done { background: #c8e6c9; color: #1b5e20; font-weight: 600; }
+    .status.error { background: #ffebee; color: #c62828; }
+    .stats { background: white; border-radius: 8px; padding: 10px 12px; margin-bottom: 10px; }
+    .stat-row { display: flex; justify-content: space-between; padding: 4px 0; border-bottom: 1px solid #eee; font-size: 12px; }
+    .stat-row:last-child { border-bottom: none; }
+    .stat-value { font-weight: 600; color: #c41230; }
+    .form-row { display: flex; align-items: center; gap: 8px; margin-bottom: 8px; font-size: 12px; color: #333; background: white; padding: 8px 12px; border-radius: 8px; }
+    .form-row label { white-space: nowrap; }
+    .form-row input[type="number"] { width: 70px; padding: 5px; border: 1px solid #ddd; border-radius: 4px; font-size: 12px; }
+    .form-row input[type="text"] { flex: 1; padding: 5px; border: 1px solid #ddd; border-radius: 4px; font-size: 12px; }
+    .form-row select { padding: 5px; border: 1px solid #ddd; border-radius: 4px; font-size: 12px; }
+    .checkbox-row { display: flex; align-items: center; justify-content: space-between; font-size: 12px; padding: 4px 0; }
+    .checkbox-row label { display: flex; align-items: center; gap: 4px; cursor: pointer; }
+    .btn-group { display: flex; gap: 6px; margin-bottom: 6px; }
+    .btn { flex: 1; padding: 9px; border: none; border-radius: 6px; font-size: 12px; font-weight: 500; cursor: pointer; }
+    .btn-start { background: #c41230; color: white; }
+    .btn-start:hover { background: #a30f28; }
+    .btn-stop { background: #757575; color: white; }
+    .btn-export { background: #1976d2; color: white; }
+    .btn-export:hover { background: #1565c0; }
+    .btn-secondary { background: white; color: #333; border: 1px solid #ddd; }
+    .btn:disabled { opacity: 0.5; cursor: not-allowed; }
+    .tip { font-size: 11px; color: #666; padding: 6px 8px; background: #fff3cd; border-radius: 4px; margin-top: 4px; }
+    .warn { background: #fff8e1; color: #f57f17; }
+  </style>
+</head>
+<body>
+  <div class="header">
+    <img src="../icons/icon48.png" alt="Logo">
+    <h1>李宁采集助手 v3.2</h1>
+  </div>
+
+  <div class="status" id="statusBox">就绪</div>
+
+  <div class="stats">
+    <div class="stat-row">
+      <span>已捕获商品</span>
+      <span class="stat-value" id="productCount">0</span>
+    </div>
+    <div class="stat-row">
+      <span>已捕获详情</span>
+      <span class="stat-value" id="detailCount">0</span>
+    </div>
+    <div class="stat-row">
+      <span>当前页面</span>
+      <span class="stat-value" id="currentPage" style="font-size:11px;">-</span>
+    </div>
+  </div>
+
+  <div class="form-row">
+    <label>采集数量</label>
+    <input type="number" id="limitInput" value="500" min="1" max="10000">
+    <span style="font-size:10px;color:#999;">个（无上限）</span>
+  </div>
+
+  <div class="form-row">
+    <label>文件名前缀</label>
+    <input type="text" id="folderInput" value="lining_data">
+    <span style="font-size:10px;color:#999;">子目录名</span>
+  </div>
+
+  <div class="form-row" style="margin-bottom:6px;">
+    <label class="checkbox-row" style="width:100%;margin:0;">
+      <span><input type="checkbox" id="autoDownloadChk" checked> 采集完成后自动下载</span>
+    </label>
+  </div>
+
+  <div class="form-row" style="margin-bottom:6px;">
+    <label class="checkbox-row" style="width:100%;margin:0;">
+      <span><input type="checkbox" id="useSaveAsChk" checked> 弹出保存窗口选择位置</span>
+    </label>
+  </div>
+
+  <div class="btn-group">
+    <button class="btn btn-start" id="startBtn">开始采集</button>
+    <button class="btn btn-stop" id="stopBtn" style="display:none;">停止</button>
+  </div>
+
+  <div class="btn-group">
+    <button class="btn btn-export" id="exportBtn">手动导出 CSV</button>
+    <button class="btn btn-secondary" id="clearBtn">清空数据</button>
+  </div>
+
+  <div class="btn-group">
+    <button class="btn btn-secondary" id="diagnoseBtn" style="background:#ff9800;color:white;">诊断页面</button>
+    <button class="btn btn-secondary" id="injectBtn" style="background:#4caf50;color:white;">注入脚本</button>
+  </div>
+
+  <div class="btn-group">
+    <button class="btn btn-secondary" id="testExportBtn" style="background:#9c27b0;color:white;font-weight:600;">测试导出</button>
+  </div>
+
+  <div class="tip" id="tipBox">
+    使用说明：打开李宁分类页 → 设置采集数量 → 开始采集 → 完成后弹出保存窗口选位置
+  </div>
+
+  <script src="popup.js"></script>
+</body>
+</html>

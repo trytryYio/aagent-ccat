@@ -1,0 +1,38 @@
+{
+  "manifest_version": 3,
+  "name": "李宁自动采集助手",
+  "version": "2.0.0",
+  "description": "全自动采集李宁官网商品数据",
+  "permissions": [
+    "activeTab",
+    "downloads",
+    "scripting",
+    "storage",
+    "tabs"
+  ],
+  "host_permissions": [
+    "*://*.lining.com/*",
+    "*://api.store.lining.com/*"
+  ],
+  "action": {
+    "default_popup": "popup/popup.html",
+    "default_title": "李宁自动采集助手"
+  },
+  "content_scripts": [
+    {
+      "matches": ["*://*.lining.com/*"],
+      "js": ["content/inject.js"],
+      "run_at": "document_start",
+      "world": "MAIN"
+    },
+    {
+      "matches": ["*://*.lining.com/*"],
+      "js": ["content/content.js"],
+      "run_at": "document_start",
+      "world": "ISOLATED"
+    }
+  ],
+  "background": {
+    "service_worker": "background/background.js"
+  }
+}
